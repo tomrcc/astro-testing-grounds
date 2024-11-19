@@ -17,10 +17,17 @@ collections_config:
       - name: Add New Page
         schema: default
         icon: pages
+      - name: Add New French Page
+        schema: fr_page
+        icon: pages
     schemas:
       default:
         name: New Page
         path: schemas/page.md
+        remove_extra_inputs: false
+      fr_page:
+        name: New Page (FR)
+        path: schemas/fr-page.md
         remove_extra_inputs: false
       paginated:
         name: Paginated collection
