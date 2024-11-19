@@ -25,10 +25,18 @@ collections_config:
         name: New Page
         path: schemas/page.md
         remove_extra_inputs: false
+        _inputs:
+          en_slug:
+            comment: This is some config for en_slug defined from the schema level
+            hidden: true
       fr_page:
         name: New Page (FR)
         path: schemas/fr-page.md
         remove_extra_inputs: false
+        _inputs:
+          fr_slug:
+            comment: This is some config for fr_slug defined from the schema level
+            hidden: true
       paginated:
         name: Paginated collection
         path: schemas/paginated.md
