@@ -52,7 +52,18 @@ const headingGradientColor = block.heading.heading_gradient_color;
       <div class="subheading-text" style={`color: ${block.subheading.color};`}>
         <Markdown content={block.subheading.markdown_content} />
       </div>
-      <script is:inline>console.log('Here in the ve');</script>
+      <script is:inline>
+        console.log('Here in the ve');
+        if (!window.CloudCannon) {
+          document.addEventListener('cloudcannon:load', function (e) {
+            console.log(e)
+            onLiveEditorLoad(e.detail.CloudCannon);
+          });
+        } else {
+          console.log(window)
+          onLiveEditorLoad(window.CloudCannon);
+        }
+        </script>
       <div class="buttons">
         {
           block.buttons.map((button) => {
