@@ -55,14 +55,15 @@ const headingGradientColor = block.heading.heading_gradient_color;
       <script is:inline>
         function onLiveEditorLoad(cloudcannonObj) {
           const paragraphs = document.getElementsByTagName('p');
-          console.log('Triggering some stuff once editor is loaded')
+          console.log('Runs some stuff once editor is loaded')
           console.log('cloudcannonObj: ', cloudcannonObj)
-          paragraphs?.forEach((para) => {
-            para.style.color = '#ff0000'
-          })
-          console.log('This should run after we change heading styles')
+          console.log('paragraphs', paragraphs)
+          for (paragraph in paragraphs) {
+            paragraph.style.color = '#ff0000'
+          }
+          console.log('This should be running after we change styles')
         }
-        console.log('Here in the ve straight away');
+        console.log('Runs in the ve straight away');
         if (!window.CloudCannon) {
           document.addEventListener('cloudcannon:load', function (e) {
             console.log(e)
