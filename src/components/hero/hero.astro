@@ -53,12 +53,11 @@ const headingGradientColor = block.heading.heading_gradient_color;
         <Markdown content={block.subheading.markdown_content} />
       </div>
       <script is:inline>
-        console.log('Runs in the ve straight away');
-        document.addEventListener('cloudcannon:update', function (e) {
-          function drawHexagons() {
+        function drawHexagons() {
             const hexSideLength = 24;
         
             var hexagons = document.getElementsByClassName("hex");
+            console.log('Running drawHexagons')
         
             for (var i = hexagons.length - 1; i >= 0; --i) {
               var parentForHex = hexagons[i].parentElement;
@@ -89,6 +88,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
           }
         
           function drawHexagon(ctx, x, y, hexSideLength, label) {
+            console.log('Running drawHexagon')
             const sides = 6;
             const radianLength = 2 * Math.PI / sides;
         
@@ -106,9 +106,16 @@ const headingGradientColor = block.heading.heading_gradient_color;
             ctx.stroke();
           }
       
+        console.log('Runs in the ve straight away');
+        if (!window.CloudCannon) {
+          document.addEventListener('cloudcannon:load', function (e) {
+            console.log('Running once event listener detects we load')
+            drawHexagons();
+          });
+        } else {
+          console.log('Looks like we already loaded, running now')
           drawHexagons();
-
-        });
+        }
         </script>
       <div class="buttons">
         {
