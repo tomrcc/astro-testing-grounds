@@ -57,8 +57,10 @@ const headingGradientColor = block.heading.heading_gradient_color;
           const paragraphs = document.getElementsByTagName('p');
           console.log('Runs some stuff once editor is loaded')
           console.log('cloudcannonObj: ', cloudcannonObj)
-          console.log('paragraphs', paragraphs)
+          // console.log('paragraphs', paragraphs)
           for (paragraph in paragraphs) {
+            console.log({paragraph})
+            console.log({paragraph.style})
             paragraph.style.color = '#ff0000'
           }
           console.log('This should be running after we change styles')
