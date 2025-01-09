@@ -111,9 +111,11 @@ const headingGradientColor = block.heading.heading_gradient_color;
         console.log('Runs in the ve straight away');
         if (!window.CloudCannon) {
           document.addEventListener('cloudcannon:load', function (e) {
-            console.log('Running once event listener detects we load')
+           console.log('Running once event listener detects we load')
+          }).then( 
+            console.log('Running after event listener detects we load')
             drawHexagons();
-          });
+          );
         } else {
           console.log('Looks like we already loaded, running now')
           drawHexagons();
