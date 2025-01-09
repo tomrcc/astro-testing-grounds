@@ -57,11 +57,8 @@ const headingGradientColor = block.heading.heading_gradient_color;
           const paragraphs = document.getElementsByTagName('p');
           console.log('Runs some stuff once editor is loaded')
           console.log('cloudcannonObj: ', cloudcannonObj)
-          for (paragraph in paragraphs) {
-            console.log({paragraph})
-            paragraph.innerHTML = 'This has changed in a scrip'
-          }
-          console.log('This should be running after we change styles')
+          paragraphs[0].innerHTML = 'This has changed in a scrip'
+          console.log('This should be running after we change innerHTML')
         }
         console.log('Runs in the ve straight away');
         document.addEventListener('cloudcannon:update', async function (e) {
