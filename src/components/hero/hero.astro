@@ -48,10 +48,12 @@ const headingGradientColor = block.heading.heading_gradient_color;
 <section style={`background-color: ${block.background_color};`}>
   <div class="hero-container">
     <div class="content">
-      <h1 class="heading hex">{block.heading.heading_text}</h1>
-      <div class="subheading-text hex" style={`color: ${block.subheading.color};`}>
+      <div class="hex"></div>
+      <h1 class="heading">{block.heading.heading_text}</h1>
+      <div class="subheading-text" style={`color: ${block.subheading.color};`}>
         <Markdown content={block.subheading.markdown_content} />
       </div>
+      <div class="hex"></div>
       <script is:inline>
         function drawHexagons() {
           const hexSideLength = 24;
@@ -108,7 +110,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
       
         console.log('Runs in the ve straight away');
         if (!window.CloudCannon) {
-          document.addEventListener('cloudcannon:update', function (e) {
+          document.addEventListener('cloudcannon:load', function (e) {
             console.log('Running once event listener detects we load')
             drawHexagons();
           });
