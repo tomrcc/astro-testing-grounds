@@ -62,9 +62,9 @@ const headingGradientColor = block.heading.heading_gradient_color;
         }
         console.log('Runs in the ve straight away');
         document.addEventListener('cloudcannon:load', function (e) {
-          const paragraphs = document.getElementsByTagName('p');
+          const bodyEl = document.getElementsByTagName('body');
           console.log('Runs some stuff once editor is loaded')
-          paragraphs[0].innerHTML = 'This has changed in a scrip'
+          bodyEl[0].style.backgroundColor = '#ff0000'
         });
         </script>
       <div class="buttons">
