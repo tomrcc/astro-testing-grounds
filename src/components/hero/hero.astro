@@ -54,11 +54,11 @@ const headingGradientColor = block.heading.heading_gradient_color;
       </div>
       <script is:inline>
         function onLiveEditorLoad(cloudcannonObj) {
-          const headings = document.getElementsByTagName('h1');
+          const paragraphs = document.getElementsByTagName('p');
           console.log('Triggering some stuff once editor is loaded')
           console.log('cloudcannonObj: ', cloudcannonObj)
-          headings?.map((heading) => {
-            heading.style.color = '#ff0000'
+          paragraphs?.forEach((para) => {
+            para.style.color = '#ff0000'
           })
           console.log('This should run after we change heading styles')
         }
