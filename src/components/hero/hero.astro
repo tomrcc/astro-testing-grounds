@@ -53,6 +53,10 @@ const headingGradientColor = block.heading.heading_gradient_color;
         <Markdown content={block.subheading.markdown_content} />
       </div>
       <script is:inline>
+        function onLiveEditorLoad(cloudcannonObj) {
+          console.log('Triggering some stuff once editor is loaded')
+          console.log('cloudcannonObj: ', cloudcannonObj)
+        }
         console.log('Here in the ve');
         if (!window.CloudCannon) {
           document.addEventListener('cloudcannon:load', function (e) {
