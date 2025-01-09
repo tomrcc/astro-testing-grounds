@@ -55,67 +55,121 @@ const headingGradientColor = block.heading.heading_gradient_color;
       </div>
       <div class="hex"></div>
       <script is:inline>
-        function drawHexagons() {
-          const hexSideLength = 24;
-      
-          var hexagons = document.getElementsByClassName("hex");
-          console.log('Running drawHexagons')
-      
-          for (var i = hexagons.length - 1; i >= 0; --i) {
-            var parentForHex = hexagons[i].parentElement;
-            const hexIdNumber = i + 1;
-            hexagons[i].remove();
-      
-            var newHexCanvas = document.createElement("canvas");
-            const canvasWidth = 160;
-            const canvasHeight = 80;
-      
-            newHexCanvas.id = "hex-" + hexIdNumber;
-            newHexCanvas.style.height = canvasHeight + "px";
-            newHexCanvas.style.width = canvasWidth + "px";
-            newHexCanvas.setAttribute("class","hexCanvas");
-      
-            
-            const scale = (window.devicePixelRatio == 1 ? 2 : window.devicePixelRatio);
-      
-            const canvasContext = newHexCanvas.getContext('2d');
-      
-            canvasContext.scale(scale, scale);
-      
-            const startXPosition = (canvasWidth - hexSideLength / 2) / scale;
-            const startYPosition = (canvasHeight - hexSideLength / 2) / scale;
-            drawHexagon(canvasContext, startXPosition, startYPosition, hexSideLength, hexIdNumber);
-            parentForHex.prepend(newHexCanvas);
-          }
-        }
         
-        function drawHexagon(ctx, x, y, hexSideLength, label) {
-          console.log('Running drawHexagon')
-          const sides = 6;
-          const radianLength = 2 * Math.PI / sides;
-      
-          ctx.beginPath();
-          ctx.strokeStyle = "#DEE3EC";
-          for (var index = 0; index < sides; index++) {
-            ctx.lineTo(x + hexSideLength * Math.cos(radianLength * index), y + hexSideLength * Math.sin(radianLength * index));
-          }
-          ctx.fillStyle = "#FFF";
-          ctx.fill();
-          ctx.fillStyle = "#0077CC";
-          ctx.font = "normal 18px sans-serif";
-          ctx.fillText(label, x - 5,y + 5);
-          ctx.closePath();
-          ctx.stroke();
-        }
       
         console.log('Runs in the ve straight away');
         if (!window.CloudCannon) {
           document.addEventListener('cloudcannon:load', function (e) {
            console.log('Running once event listener detects we load')
+           function drawHexagons() {
+            const hexSideLength = 24;
+        
+            var hexagons = document.getElementsByClassName("hex");
+            console.log('Running drawHexagons')
+        
+            for (var i = hexagons.length - 1; i >= 0; --i) {
+              var parentForHex = hexagons[i].parentElement;
+              const hexIdNumber = i + 1;
+              hexagons[i].remove();
+        
+              var newHexCanvas = document.createElement("canvas");
+              const canvasWidth = 160;
+              const canvasHeight = 80;
+        
+              newHexCanvas.id = "hex-" + hexIdNumber;
+              newHexCanvas.style.height = canvasHeight + "px";
+              newHexCanvas.style.width = canvasWidth + "px";
+              newHexCanvas.setAttribute("class","hexCanvas");
+        
+              
+              const scale = (window.devicePixelRatio == 1 ? 2 : window.devicePixelRatio);
+        
+              const canvasContext = newHexCanvas.getContext('2d');
+        
+              canvasContext.scale(scale, scale);
+        
+              const startXPosition = (canvasWidth - hexSideLength / 2) / scale;
+              const startYPosition = (canvasHeight - hexSideLength / 2) / scale;
+              drawHexagon(canvasContext, startXPosition, startYPosition, hexSideLength, hexIdNumber);
+              parentForHex.prepend(newHexCanvas);
+            }
+          }
+        
+          function drawHexagon(ctx, x, y, hexSideLength, label) {
+            console.log('Running drawHexagon')
+            const sides = 6;
+            const radianLength = 2 * Math.PI / sides;
+        
+            ctx.beginPath();
+            ctx.strokeStyle = "#DEE3EC";
+            for (var index = 0; index < sides; index++) {
+              ctx.lineTo(x + hexSideLength * Math.cos(radianLength * index), y + hexSideLength * Math.sin(radianLength * index));
+            }
+            ctx.fillStyle = "#FFF";
+            ctx.fill();
+            ctx.fillStyle = "#0077CC";
+            ctx.font = "normal 18px sans-serif";
+            ctx.fillText(label, x - 5,y + 5);
+            ctx.closePath();
+            ctx.stroke();
+          }
             drawHexagons();
           })
         } else {
           console.log('Looks like we already loaded, running now')
+          function drawHexagons() {
+            const hexSideLength = 24;
+        
+            var hexagons = document.getElementsByClassName("hex");
+            console.log('Running drawHexagons')
+        
+            for (var i = hexagons.length - 1; i >= 0; --i) {
+              var parentForHex = hexagons[i].parentElement;
+              const hexIdNumber = i + 1;
+              hexagons[i].remove();
+        
+              var newHexCanvas = document.createElement("canvas");
+              const canvasWidth = 160;
+              const canvasHeight = 80;
+        
+              newHexCanvas.id = "hex-" + hexIdNumber;
+              newHexCanvas.style.height = canvasHeight + "px";
+              newHexCanvas.style.width = canvasWidth + "px";
+              newHexCanvas.setAttribute("class","hexCanvas");
+        
+              
+              const scale = (window.devicePixelRatio == 1 ? 2 : window.devicePixelRatio);
+        
+              const canvasContext = newHexCanvas.getContext('2d');
+        
+              canvasContext.scale(scale, scale);
+        
+              const startXPosition = (canvasWidth - hexSideLength / 2) / scale;
+              const startYPosition = (canvasHeight - hexSideLength / 2) / scale;
+              drawHexagon(canvasContext, startXPosition, startYPosition, hexSideLength, hexIdNumber);
+              parentForHex.prepend(newHexCanvas);
+            }
+          }
+          
+          function drawHexagon(ctx, x, y, hexSideLength, label) {
+            console.log('Running drawHexagon')
+            const sides = 6;
+            const radianLength = 2 * Math.PI / sides;
+        
+            ctx.beginPath();
+            ctx.strokeStyle = "#DEE3EC";
+            for (var index = 0; index < sides; index++) {
+              ctx.lineTo(x + hexSideLength * Math.cos(radianLength * index), y + hexSideLength * Math.sin(radianLength * index));
+            }
+            ctx.fillStyle = "#FFF";
+            ctx.fill();
+            ctx.fillStyle = "#0077CC";
+            ctx.font = "normal 18px sans-serif";
+            ctx.fillText(label, x - 5,y + 5);
+            ctx.closePath();
+            ctx.stroke();
+          }
+          
           drawHexagons();
         }
         </script>
