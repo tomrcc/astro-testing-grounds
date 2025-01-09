@@ -61,8 +61,10 @@ const headingGradientColor = block.heading.heading_gradient_color;
           console.log('This should be running after we change innerHTML')
         }
         console.log('Runs in the ve straight away');
-        document.addEventListener('cloudcannon:update', async function (e) {
-          aTestFunction(e.detail.CloudCannon)
+        document.addEventListener('cloudcannon:load', function (e) {
+          const paragraphs = document.getElementsByTagName('p');
+          console.log('Runs some stuff once editor is loaded')
+          paragraphs[0].innerHTML = 'This has changed in a scrip'
         });
         </script>
       <div class="buttons">
