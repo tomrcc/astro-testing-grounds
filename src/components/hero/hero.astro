@@ -53,27 +53,20 @@ const headingGradientColor = block.heading.heading_gradient_color;
         <Markdown content={block.subheading.markdown_content} />
       </div>
       <script is:inline>
-        function onLiveEditorLoad(cloudcannonObj) {
+        function aTestFunction(cloudcannonObj) {
           const paragraphs = document.getElementsByTagName('p');
           console.log('Runs some stuff once editor is loaded')
           console.log('cloudcannonObj: ', cloudcannonObj)
           for (paragraph in paragraphs) {
-            console.log('In the para loop')
             console.log({paragraph})
             paragraph.innerHTML = 'This has changed in a scrip'
           }
           console.log('This should be running after we change styles')
         }
         console.log('Runs in the ve straight away');
-        if (!window.CloudCannon) {
-          document.addEventListener('cloudcannon:load', function (e) {
-            console.log(e)
-            onLiveEditorLoad(e.detail.CloudCannon);
-          });
-        } else {
-          console.log(window)
-          onLiveEditorLoad(window.CloudCannon);
-        }
+        document.addEventListener('cloudcannon:update', async function (e) {
+          aTestFunction(e.detail.CloudCannon)
+        });
         </script>
       <div class="buttons">
         {
